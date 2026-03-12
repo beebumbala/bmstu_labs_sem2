@@ -21,6 +21,9 @@ public:
   /// DN <param name="rhs">Объект, который копируем </param>
   String(const String& rhs);
 
+  /// DN Конструктор перемещения
+  String(String&& rhs);
+
   /// DN Пользовательский конструктор
   /// DN <param name="data">Данные, которые требуется поместить в создаваемый
   /// DN объект </param>
