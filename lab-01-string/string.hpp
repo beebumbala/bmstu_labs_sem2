@@ -1,68 +1,74 @@
 #pragma once
 
-#include <cstddef>
 #include <iostream>
 
 class String {
- public:
-  /// Деструктор
+private:
+    char* Data;
+
+    static size_t strlen(const char* s);
+    static void strcpy(char* to, const char* from);
+    static void strcat(char* to, const char* from);
+    static int strcmp(const char* s1, const char* s2);
+public:
+  /// DN Деструктор
   ~String();
 
-  /// Конструктор по умолчанию
+  /// DN Конструктор по умолчанию
   String();
 
-  /// Конструктор копирования
-  /// <param name="rhs">Объект, который копируем </param>
+  /// DN Конструктор копирования
+  /// DN <param name="rhs">Объект, который копируем </param>
   String(const String& rhs);
 
-  /// Пользовательский конструктор
-  /// <param name="data">Данные, которые требуется поместить в создаваемый
-  /// объект </param>
+  /// DN Пользовательский конструктор
+  /// DN <param name="data">Данные, которые требуется поместить в создаваемый
+  /// DN объект </param>
   String(const char* data);
 
-  /// Оператор присваивания
-  /// <param name="data">Объект, который копируем </param>
-  /// <returns>Возвращаем ссылку на себя</returns>
+  /// DN Оператор присваивания
+  /// DN <param name="data">Объект, который копируем </param>
+  /// DN <returns>Возвращаем ссылку на себя</returns>
   String& operator=(const String& rhs);
 
-  /// Оператор +=
-  /// <param name="rhs">Объект, который стоит после знака '+=' </param>
-  /// <returns>Возвращаем ссылку на себя</returns>
+  /// DN Оператор +=
+  /// DN <param name="rhs">Объект, который стоит после знака '+=' </param>
+  /// DN <returns>Возвращаем ссылку на себя</returns>
   String& operator+=(const String& rhs);
 
-  /// Оператор *=
-  /// <returns>Возвращаем ссылку на себя</returns>
+  /// DN Оператор *=
+  /// DN <returns>Возвращаем ссылку на себя</returns>
   String& operator*=(unsigned int m);
 
-  /// Оператор ==
-  /// <param name="rhs">Объект, который стоит после знака '==' </param>
-  /// <returns>Возвращаем значения равенства двух строк</returns>
+  /// DN Оператор ==
+  /// DN <param name="rhs">Объект, который стоит после знака '==' </param>
+  /// DN <returns>Возвращаем значения равенства двух строк</returns>
   bool operator==(const String& rhs) const;
 
-  /// Оператор &lt;
-  /// <param name="rhs">Объект, который стоит после знака "&lt;" </param>
-  /// <returns>Возвращаем значения сравнения двух строк</returns>
+  /// DN Оператор &lt;
+  /// DN <param name="rhs">Объект, который стоит после знака "&lt;" </param>
+  /// DN <returns>Возвращаем значения сравнения двух строк</returns>
   bool operator<(const String& rhs) const;
 
-  /// Функция поиска подстроки
+  /// DN Функция поиска подстроки
   /// <param name="substr">Подстрока, которую необходимо найти </param>
   /// <returns>Возвращаем позицию substr. Если подстрока не найдена, то
   /// возвратить -1</returns>
   size_t Find(const String& substr) const;
 
-  /// Функция замены символов, заменяет все символы oldSymbol на newSymbol.
+  /// DN Функция замены символов, заменяет все символы oldSymbol на newSymbol.
   /// <param name="oldSymbol">Символ, который требуется заменить </param>
   /// <param name="newSymbol">Символ, на который требуется заменить </param>
   void Replace(char oldSymbol, char newSymbol);
 
-  /// Функция возвращает длину строки
+  /// DN Функция возвращает длину строки
   /// <returns>Возвращаем длину строки</returns>
   size_t Size() const;
 
-  /// Функция для определения пуста ли строка
+  /// DN Функция для определения пуста ли строка
   bool Empty() const;
 
-  /// Оператор []
+  /// DN Оператор []
   /// <example>
   /// <code>
   /// String str = "some string";
@@ -73,7 +79,7 @@ class String {
   /// <returns> Значение символа в строке с индексом index</returns>
   char operator[](size_t index) const;
 
-  /// Оператор []
+  /// DN Оператор []
   /// <example>
   /// <code>
   /// String str = "some string";
@@ -84,7 +90,7 @@ class String {
   /// <returns> Ссылка на символ в строке с индексом index</returns>
   char& operator[](size_t index);
 
-  /// Смотри пример
+  /// N Смотри пример
   /// <example>
   /// <code>
   /// String str = "___some string___";
@@ -94,7 +100,7 @@ class String {
   /// <param name="symbol"> Значение символов, которе отрезаем </param>
   void RTrim(char symbol);
 
-  /// Смотри пример
+  /// N Смотри пример
   /// <example>
   /// <code>
   /// String str = "___some string___";
@@ -104,12 +110,10 @@ class String {
   /// <param name="symbol"> Значение символов, которе отрезаем </param>
   void LTrim(char symbol);
 
+    /// N swap
   void swap(String& oth);
-
+  /// N
   friend std::ostream& operator<<(std::ostream&, const String&);
-
- private:
-  char* Data;
 };
 
 /// Оператор +
@@ -135,11 +139,5 @@ String operator*(const String& a, unsigned int b);
 /// Оператор !=
 bool operator!=(const String& a, const String& b);
 
-/// Оператор &gt;
+/// Оператор >
 bool operator>(const String& a, const String& b);
-
-/// Оператор вывода
-/// <param name="out">Поток куда выводим строку </param>
-/// <param name="str">Строка, которую выводим </param>
-/// <returns>Возвращаем ссылку на поток</returns>
-std::ostream& operator<<(std::ostream& out, const String& str);
