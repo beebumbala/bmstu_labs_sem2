@@ -58,6 +58,15 @@ String::String(const String& rhs) {
     }
 }
 
+String::String(String&& rhs) : Data(nullptr) {
+    if (rhs.Data) {
+        Data = rhs.Data;
+        rhs.Data = nullptr;
+    } else {
+        Data = nullptr;
+    }
+}
+
 String::String(const char* data) {
     if (data) {
         Data = new char[strlen(data) + 1];
