@@ -86,7 +86,7 @@ namespace lab {
                 delete node;
                 return temp;
             }
-            // if both left and right children exist (zhopa)
+            // if both left and right children exist (not cool)
             Node* temp = findMin(node->right);
             node->data = temp->data;
             node->right = remove(node->right, temp->data);
