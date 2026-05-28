@@ -1,0 +1,16 @@
+dep1 | 100 | USD | 10
+dep2 | 10000 | USD | 15
+dep 3 | 1000 | USD | 0
+d e p 152 | 1e+06 | USD | 1
+dep1 | 100 | USD | 10
+dep 3 | 1000 | USD | 0
+dep2 | 10000 | USD | 15
+d e p 152 | 1e+06 | USD | 1
+dep1 | 100 | USD | 10
+dep1 | 100 | USD | 10
+dep 3 | 1000 | USD | 0
+dep 3 | 1000 | USD | 0
+dep2 | 10000 | USD | 15
+dep2 | 10000 | USD | 15
+d e p 152 | 1e+06 | USD | 1
+d e p 152 | 1e+06 | USD | 1
